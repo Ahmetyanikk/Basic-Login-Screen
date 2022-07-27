@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Login Screen</title>
+
+  <style>
+    body { max-width: 440px; }
+    pre  { overflow-x: auto; }
+    input { width: 50px }
+    .modbutton{
+  
+  margin-top: 20px;
+  margin-right: 20%;
+  margin-bottom: 15px;
+  width: 60%;
+  background: #222831;
+  border-radius: 5px;
+  border: 2px solid #222831;
+
+  font-size: 1.25rem;
+  color: #00ADB5;
+}
+.modbutton2{
+  
+  margin-bottom: 15px;
+  width: 60%;
+  background: #222831;
+  border-radius: 5px;
+  border: 2px solid #222831;
+    
+  font-size: 1.25rem;
+  color: #00ADB5;
+  display: inline-block;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+    <li><a href="https://ahmetyanikk.github.io/Basic-Login-Screen/kodyardim.html">Kod Yardım</a></li>
+<h2 id=title></h2>
+<p>
+<label>User name:<input type="text" id="UN" input name:"UserName"></label>
+</p>
+<p>
+<label>Password:<input type="text" id="PW"input name:"Password"></label>
+</p>
+<p>
+    <input type="button"button class="button modbutton2 "id="Login" value="login"onclick="Login_Function()">
+    <input type="button"button class="button modbutton2 "id="Register" value="Register"onclick="Register_Function()">
+</p>
+<section class="displayFinal announcer hide"></section>
+<h3 id="login">Login Succesful </h3>
+<h3 id="login_Failed">Login Failed </h3>
+<h3 id="register">Register Succesful </h3>
+<h3 id="register_Failed">Register Failed </h3>
+
+<script>
+"use strict";
+document.getElementById("login").style.display="none"
+document.getElementById("login_Failed").style.display="none"
+document.getElementById("register").style.display="none"
+document.getElementById("register_Failed").style.display="none"
+var UserName=new Array("Admin");
+var Password=new Array("123");
+function Login_Function(){
+var count = 0;
+for(var i=0;i<Password.length;i++){
+    if (UN.value==UserName[i]&&PW.value==Password[i]){
+        count++;
+    }
+    if(count==1){
+        document.getElementById("login").style.display="inline";
+        document.getElementById("login_Failed").style.display="none";
+        document.getElementById("register").style.display="none";
+        document.getElementById("register_Failed").style.display="none";
+    }
+    else{
+        document.getElementById("login_Failed").style.display="inline";
+        document.getElementById("login").style.display="none";
+        document.getElementById("register").style.display="none";
+        document.getElementById("register_Failed").style.display="none";
+        
+    }
+}
+}
+function Register_Function(){
+var count=0;
+for(var i=0;i<Password.length;i++){
+    if (UN.value==UserName[i]&&PW.value==Password[i]){
+        count++;
+    }}
+    if(count!=0){
+        document.getElementById("register_Failed").style.display="inline";
+        document.getElementById("login").style.display="none";
+        document.getElementById("register").style.display="none";
+        document.getElementById("login_Failed").style.display="none";
+         
+    }
+    else{
+        document.getElementById("register").style.display="inline";
+        document.getElementById("login").style.display="none";
+        document.getElementById("login_Failed").style.display="none";
+        document.getElementById("register_Failed").style.display="none";
+        UserName.push(UN.value);
+        Password.push(PW.value);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
