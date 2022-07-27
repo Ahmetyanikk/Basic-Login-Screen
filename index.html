@@ -9,29 +9,25 @@
     body { max-width: 440px; }
     pre  { overflow-x: auto; }
     input { width: 50px }
-    .modbutton{
-  
-  margin-top: 20px;
-  margin-right: 20%;
-  margin-bottom: 15px;
-  width: 60%;
-  background: #222831;
-  border-radius: 5px;
-  border: 2px solid #222831;
-
-  font-size: 1.25rem;
-  color: #00ADB5;
+    body {
+    background-color: #3EC1D3;
+    height: 100vh;
+    padding-top: 1px;
 }
-.modbutton2{
+.label{
+  margin-bottom: 12px;
+  color: #FF9A00;
+}
+.modbutton{
   
   margin-bottom: 15px;
   width: 60%;
-  background: #222831;
+  background: #FF165D;
   border-radius: 5px;
-  border: 2px solid #222831;
+  border: 2px solid #FF165D;
     
   font-size: 1.25rem;
-  color: #00ADB5;
+  color: #FF9A00;
   display: inline-block;
 }
 
@@ -50,10 +46,10 @@
 <label>Password:<input type="text" id="PW"input name:"Password"></label>
 </p>
 <p>
-    <input type="button"button class="button modbutton2 "id="Login" value="Login"onclick="Login_Function()">
-    <input type="button"button class="button modbutton2 "id="Register" value="Register"onclick="Register_Function()">
+    <input type="button"button class="button modbutton "id="Login" value="login"onclick="Login_Function()">
+    <input type="button"button class="button modbutton "id="Register" value="Register"onclick="Register_Function()">
 </p>
-<section class="displayFinal announcer hide"></section>
+
 <h3 id="login">Login Succesful </h3>
 <h3 id="login_Failed">Login Failed </h3>
 <h3 id="register">Register Succesful </h3>
@@ -61,10 +57,14 @@
 
 <script>
 "use strict";
-document.getElementById("login").style.display="none"
-document.getElementById("login_Failed").style.display="none"
-document.getElementById("register").style.display="none"
-document.getElementById("register_Failed").style.display="none"
+var login =document.getElementById("login");
+var login_Failed =document.getElementById("login_Failed");
+var register =document.getElementById("register");
+var register_Failed =document.getElementById("register_Failed");
+login.style.display="none"
+login_Failed.style.display="none"
+register.style.display="none"
+register_Failed.style.display="none"
 var UserName=new Array("Admin");
 var Password=new Array("123");
 function Login_Function(){
@@ -74,16 +74,16 @@ for(var i=0;i<Password.length;i++){
         count++;
     }
     if(count==1){
-        document.getElementById("login").style.display="inline";
-        document.getElementById("login_Failed").style.display="none";
-        document.getElementById("register").style.display="none";
-        document.getElementById("register_Failed").style.display="none";
+        login.style.display="inline";
+        login_Failed.style.display="none";
+        register.style.display="none";
+        register_Failed.style.display="none";
     }
     else{
-        document.getElementById("login_Failed").style.display="inline";
-        document.getElementById("login").style.display="none";
-        document.getElementById("register").style.display="none";
-        document.getElementById("register_Failed").style.display="none";
+        login_Failed.style.display="inline";
+        login.style.display="none";
+        register.style.display="none";
+        register_Failed.style.display="none";
         
     }
 }
@@ -95,17 +95,17 @@ for(var i=0;i<Password.length;i++){
         count++;
     }}
     if(count!=0){
-        document.getElementById("register_Failed").style.display="inline";
-        document.getElementById("login").style.display="none";
-        document.getElementById("register").style.display="none";
-        document.getElementById("login_Failed").style.display="none";
+        register_Failed.style.display="inline";
+        login.style.display="none";
+        register.style.display="none";
+        login_Failed.style.display="none";
          
     }
     else{
-        document.getElementById("register").style.display="inline";
-        document.getElementById("login").style.display="none";
-        document.getElementById("login_Failed").style.display="none";
-        document.getElementById("register_Failed").style.display="none";
+        register.style.display="inline";
+        login.style.display="none";
+        login_Failed.style.display="none";
+        register_Failed.style.display="none";
         UserName.push(UN.value);
         Password.push(PW.value);
 
