@@ -13,11 +13,11 @@
     background-color: #3EC1D3;
     height: 100vh;
     padding-top: 1px;
-}
-.label{
-  margin-bottom: 12px;
-  color: #FF9A00;
-}
+    }
+    .label{
+    margin-bottom: 12px;
+    color: #FF9A00;
+    }
 .modbutton{
   
   margin-bottom: 15px;
@@ -59,55 +59,95 @@
 
 <script>
 "use strict";
-var login =document.getElementById("login");
-var login_Failed =document.getElementById("login_Failed");
-var register =document.getElementById("register");
-var register_Failed =document.getElementById("register_Failed");
+
+var login =document.getElementById("login");//Giriş başarılı yazan yazı değişkeni
+var login_Failed =document.getElementById("login_Failed");//Giriş başarısız yazan yazı değişkeni
+var register =document.getElementById("register");//kayıt başarılı yazan yazı değişkeni
+var register_Failed =document.getElementById("register_Failed");//kayıt başarısız yazan yazı değişkeni
+
 login.style.display="none"
 login_Failed.style.display="none"
+
 register.style.display="none"
 register_Failed.style.display="none"
-var UserName=new Array("Admin");
-var Password=new Array("123");
+
+var UserName=new Array("Admin");// Kullanıcı isimleri temsil etmesi için Array oluşturuyoruz.
+var Password=new Array("123");// Şifreleri temsil etmesi için Array oluşturuyoruz.
+
+// UN USERNAME'i temsil eden ve  html tarafından gelen kullanıcı adı Stringini temsil eder.
+// PW Password'i temsil eden ve  html tarafından gelen şifre Stringini temsil eder.
+
+
 function Login_Function(){
-var count = 0;
-for(var i=0;i<Password.length;i++){
-    if (UN.value==UserName[i]&&PW.value==Password[i]){
-        count++;
+
+    var count = 0;// Sayaç 
+
+    for(var i=0;i<Password.length;i++){
+
+        // Eğer giriş bilgileri algoritmadaki bilgilerle uyuşuyorsa Sayaç rakamı değişir.
+
+        if (UN.value==UserName[i]&&PW.value==Password[i]){
+
+            count++;
+        }
     }
+    
+    //Sayaç verisi değişmişse Giriş başarılı kısmından devam edilir.
     if(count==1){
+
         login.style.display="inline";
         login_Failed.style.display="none";
         register.style.display="none";
         register_Failed.style.display="none";
+
     }
+
+    // sayaç verisi değişmemişse Giriş başarısız kısmından devam edilir.
+
     else{
+
         login_Failed.style.display="inline";
         login.style.display="none";
         register.style.display="none";
         register_Failed.style.display="none";
-        
+            
     }
+    
 }
-}
+
 function Register_Function(){
-var count=0;
-for(var i=0;i<Password.length;i++){
-    if (UN.value==UserName[i]&&PW.value==Password[i]){
+
+    var count=0;// Sayaç 
+
+    for(var i=0;i<Password.length;i++){
+
+        // Eğer kayıt bilgileri sistemde bir kullanıcı ile aynıysa sayaç artırılır
+        if (UN.value==UserName[i]||PW.value==Password[i]){
+
         count++;
-    }}
+
+        }
+
+    }
+
+    //Sayaç verisi değişmişse Kayıt başarısız kısmından devam edilir. 
     if(count!=0){
+
         register_Failed.style.display="inline";
         login.style.display="none";
         register.style.display="none";
         login_Failed.style.display="none";
          
     }
+
+    // sayaç verisi değişmemişse Kayıt başarılı kısmından devam edilir.
     else{
+
         register.style.display="inline";
         login.style.display="none";
         login_Failed.style.display="none";
         register_Failed.style.display="none";
+
         UserName.push(UN.value);
         Password.push(PW.value);
 
